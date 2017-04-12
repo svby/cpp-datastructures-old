@@ -2,9 +2,7 @@
 #include <array>
 #include <sstream>
 
-/**
- * Represents a Fenwick tree/binary indexed tree.
- */
+/** Represents a Fenwick tree/binary indexed tree. */
 template <typename T>
 class fenwick_tree {
 public:
@@ -38,9 +36,7 @@ public:
 		str << ']';
 		return str.str();
 	}
-	/**
-	 * Performs a query in the range [0, to).
-	 */
+	/** Performs a query in the range [0, to). */
 	T query(size_t to) {
 		T sum = 0;
 		while(to > 0) {

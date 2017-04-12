@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.cpp" />
+    <ClInclude Include="Source\array_list.h" />
+    <ClInclude Include="Source\fenwick.h" />
+    <ClInclude Include="Source\heap.h" />
+    <ClInclude Include="Source\union_find.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fenwick.h" />
-    <ClInclude Include="union_find.h" />
+    <ClCompile Include="Source\test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
