@@ -60,7 +60,7 @@ public:
 	}
 	/** Performs the heapify-up operation on an array at a specified repair site. */
 	template<size_t N>
-	static void heapifyUp(const T(&arr)[N], size_t repair) {
+	static void heapifyUp(T(&arr)[N], size_t repair) {
 		heapifyUp(arr, repair);
 	}
 	/** Performs the heapify-up operation on a pointer at a specified repair site. */
@@ -74,7 +74,7 @@ public:
 		}
 	}
 	/** Creates a new binary heap with the specified initial capacity. */
-	heap(size_t size) {
+	explicit heap(size_t size) {
 		len = size;
 		backing = new T[size];
 	}
@@ -89,7 +89,7 @@ public:
 	}
 	/** Helper method to push all values in an array. */
 	template<size_t N>
-	void push_all(const T(&arr)[N]) {
+	void push_all(T(&arr)[N]) {
 		push_all(arr, N);
 	}
 	/** Helper method to push all values in an array. */

@@ -27,9 +27,18 @@
     <ClInclude Include="Source\array_list.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\interval_tree.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\trie.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\trie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

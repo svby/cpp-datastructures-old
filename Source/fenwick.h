@@ -60,6 +60,10 @@ public:
 			index += index & ~index + 1;
 		}
 	}
+	friend std::ostream& operator << (std::ostream& out, fenwick_tree<T>& tree) {
+		out << tree.to_string();
+		return out;
+	}
 private:
 	T* backing;
 	size_t len;

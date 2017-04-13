@@ -4,7 +4,7 @@
 template<typename T>
 class union_find {
 public:
-	union_find(T nodes) {
+	explicit union_find(T nodes) {
 		count = nodes;
 		parents = new T[nodes];
 		ranks = new T[nodes];

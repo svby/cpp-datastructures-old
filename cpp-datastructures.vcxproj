@@ -22,10 +22,13 @@
     <ClInclude Include="Source\array_list.h" />
     <ClInclude Include="Source\fenwick.h" />
     <ClInclude Include="Source\heap.h" />
+    <ClInclude Include="Source\interval_tree.h" />
+    <ClInclude Include="Source\trie.h" />
     <ClInclude Include="Source\union_find.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\test.cpp" />
+    <ClCompile Include="Source\trie.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

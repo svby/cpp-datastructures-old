@@ -3,14 +3,15 @@
 #include "fenwick.h"
 #include "union_find.h"
 #include "heap.h"
-#include <queue>
-#include <ctime>
+#include "interval_tree.h"
+#include "../trie.h"
+#include "trie.h"
 
 using std::cout;
 using std::string;
 
 template <typename T, size_t N>
-std::ostream& print_array(const T(&arr)[N]) {
+std::ostream& print_array(T(&arr)[N]) {
 	cout << '[';
 	for (size_t index = 0; index < N; ++index) {
 		if (index != 0)
@@ -24,6 +25,7 @@ void fenwick() {
 	int is[10]{ 1, 5, 3, 4, 7, -3, 0, -4, 1, 3 };
 	fenwick_tree<int> ft(is);
 	cout << ft.query(5, 8) << '\n';
+	cout << ft << '\n';
 }
 
 void unionFind() {
@@ -40,15 +42,36 @@ void unionFind() {
 }
 
 void binaryHeap() {
-	string strings[8]{ "Hello", "hello", "hEllo", "HellO", "HELLO", "ehLo", "asd", "HeLLo"};
+	string strings[8]{ "Hello", "hello", "hEllo", "HellO", "HELLO", "ehLo", "asd", "HeLLo" };
 	heap<string> bh;
-	bh.push_all(strings, 8);
+	bh.push_all(strings);
 	cout << bh.to_string() << '\n';
 	bh.clear();
 	cout << bh.to_string() << '\n';
 }
 
+void intervalTree() {
+	interval_tree<int> tree;
+	tree.insert({ 2, 4 });
+	tree.insert({ 3, 7 });
+	tree.insert({ 5, 8 });
+	tree.insert({ 1, 5 });
+	auto query = tree.query_all(3);
+	for (auto interval : query) {
+		cout << interval << '\n';
+	}
+}
+
+void trieTest() {
+	trie t;
+	t.add("Apple");
+	t.add("Application");
+	t.add("App");
+	t.root()->traverse();
+}
+
 int main() {
-	binaryHeap();
+	trieTest();
+	cout << "Done. Press enter to continue...\n";
 	getchar();
 }

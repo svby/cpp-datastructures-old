@@ -9,7 +9,7 @@ class array_list {
 public:
 	/** The default initial size of an array-list. */
 	static const size_t DEFAULT_SIZE = 16;
-	array_list(size_t size) {
+	explicit array_list(size_t size) {
 		len = size;
 		backing = new T[size];
 	}
