@@ -50,6 +50,19 @@ public:
 		node* right() {
 			return rnode;
 		}
+		void process_overlaps(typename interval_tree::interval i, std::function<void(typename interval_tree::interval)> function) {
+			if (i.overlaps(i))
+				function(i);
+			if (lnode != nullptr && lnode->max_value >= i.lo)
+				process_overlaps(lnode, i, function);
+			process_overlaps(rnode, i, function);
+		}
+		void process_overlaps(T low, T high, std::function<void(typename interval_tree::interval)> function) {
+			process_overlaps({ low, high }, function);
+		}
+		void process_overlaps(T stab, std::function<void(typename interval_tree::interval)> function) {
+			process_overlaps({ stab, stab }, function);
+		}
 	private:
 		explicit node(typename interval_tree<T>::interval interval) {
 			i = interval;
@@ -72,28 +85,11 @@ public:
 		return std::get<1>(res);
 	}
 	node* insert(T low, T high) {
-		return insert(low, high);
+		return insert({low, high});
 	}
 	void traverse(std::function<void(interval)> function) {
 		if (root_node != nullptr)
 			root_node->traverse(function);
-	}
-	void process_overlaps(node* root, interval i, std::function<void(interval)> function) {
-		if (root == nullptr) return;
-		if (i.overlaps(root->i))
-			function(root->i);
-		if (root->lnode != nullptr && root->lnode->max_value >= i.lo)
-			process_overlaps(root->lnode, i, function);
-		process_overlaps(root->rnode, i, function);
-	}
-	void process_overlaps(node* root, T value, std::function<void(interval)> function) {
-		process_overlaps(root, { value, value }, function);
-	}
-	void process_overlaps(interval i, std::function<void(interval)> function) {
-		process_overlaps(root_node, i, function);
-	}
-	void process_overlaps(T value, std::function<void(interval)> function) {
-		process_overlaps(root_node, { value, value }, function);
 	}
 	std::vector<interval> query_all(node* root, interval i) {
 		std::vector<interval> vector;

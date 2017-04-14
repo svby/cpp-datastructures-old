@@ -30,6 +30,9 @@
     <ClCompile Include="Source\test.cpp" />
     <ClCompile Include="Source\trie.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{6338EA9F-860D-460A-A04C-495BC3ED7FB0}</ProjectGuid>

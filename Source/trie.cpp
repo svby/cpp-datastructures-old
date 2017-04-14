@@ -16,7 +16,7 @@ trie::node* trie::node::add_children(const char* values, size_t len) {
 		return this;
 	}
 	auto iter = nodes.find(*values);
-	node* modify = nullptr;
+	node* modify;
 	if(iter == nodes.end())
 		nodes[*values] = modify = new node(*values, len == 1);
 	else modify = iter->second;
@@ -29,10 +29,6 @@ bool trie::node::contains(const char* str, size_t len) {
 	if (len == 0) return END;
 	auto iterator = nodes.find(*str);
 	return iterator != nodes.end() && iterator->second->contains(str + 1, len - 1);
-}
-
-bool trie::contains(const char* str, size_t len) const {
-	return root_node->contains(str, len);
 }
 
 void trie::node::traverse(std::vector<char>* prog) {
