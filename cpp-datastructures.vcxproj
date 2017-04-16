@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\array_list.h" />
-    <ClInclude Include="Source\fenwick.h" />
+    <ClInclude Include="Source\fenwick_tree.h" />
     <ClInclude Include="Source\heap.h" />
     <ClInclude Include="Source\interval_tree.h" />
     <ClInclude Include="Source\trie.h" />
@@ -28,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\test.cpp" />
-    <ClCompile Include="Source\trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

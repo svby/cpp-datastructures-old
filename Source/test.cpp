@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "fenwick.h"
+#include "fenwick_tree.h"
 #include "union_find.h"
 #include "heap.h"
 #include "interval_tree.h"
@@ -66,11 +66,19 @@ void test_interval_tree() {
 }
 
 void test_trie() {
-	trie t;
+	trie<int> t;
+	t.add("Apple");
+	t.add("Apple");
 	t.add("Apple");
 	t.add("Application");
+	t.add("Applejack");
 	t.add("App");
-	t.root()->traverse();
+	t.add("Applause");
+	t.add("Apple");
+	cout << t.root()->get("Apple") << '\n';
+	cout << t.root()->get("Application") << '\n';
+	cout << t.root()->get("App") << '\n';
+	cout << t.root()->get("A") << '\n';
 }
 
 void test_array_list() {
@@ -81,7 +89,7 @@ void test_array_list() {
 }
 
 int main() {
-	test_array_list();
+	test_trie();
 	cout << "Done. Press enter to continue...\n";
 	getchar();
 }

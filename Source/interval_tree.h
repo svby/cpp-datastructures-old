@@ -54,8 +54,8 @@ public:
 			if (i.overlaps(i))
 				function(i);
 			if (lnode != nullptr && lnode->max_value >= i.lo)
-				process_overlaps(lnode, i, function);
-			process_overlaps(rnode, i, function);
+				lnode->process_overlaps(i, function);
+			rnode->process_overlaps(i, function);
 		}
 		void process_overlaps(T low, T high, std::function<void(typename interval_tree::interval)> function) {
 			process_overlaps({ low, high }, function);
